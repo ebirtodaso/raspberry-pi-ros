@@ -1,0 +1,4 @@
+- git:
+    local-name: sensehat_ros
+    uri: https://github.com/allxone/sensehat_ros.git
+    version: master

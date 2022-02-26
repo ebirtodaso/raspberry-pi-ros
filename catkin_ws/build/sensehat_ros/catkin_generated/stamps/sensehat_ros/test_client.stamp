@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+"""Sample client to call sensehat_ros service methods."""
+
+from __future__ import print_function
+import rospy
+from sensehat_ros.srv import *
+from sensehat_ros.msg import Environmental
+import random
+from std_msgs.msg import String
+
+# def talker():
+#   pub = rospy.Publisher('letter', String, queue_size=10)
+#   rospy.init_node('talker', anonymous=True)
+#   rate = rospy.Rate(10) # 10hz
+  
+#   while not rospy.is_shutdown():
+#     # Display some pixels on the LED Matrix
+#     print("Counting down")
+#     for i in reversed(range(0,11)):
+#         rospy.loginfo(str(i))
+#         pub.publish(str(i))
+#         rate.sleep()
+
+def talker():
+  pub = rospy.Publisher('message', String, queue_size=10)
+  rospy.init_node('talker', anonymous=True)
+  rate = rospy.Rate(10) # 10hz
+  
+  while not rospy.is_shutdown():
+    # Display some pixels on the LED Matrix
+    msg = raw_input('Enter msg: ')
+    rospy.loginfo(msg)
+    pub.publish(msg)
+    rate.sleep()
+
+if __name__ == "__main__":
+
+        try:
+          talker()
+        except rospy.ROSInterruptException:
+          pass  

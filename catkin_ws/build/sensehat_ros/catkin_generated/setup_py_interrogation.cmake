@@ -1,0 +1,7 @@
+set(sensehat_ros_SETUP_PY_SETUP_MODULE "setuptools")
+set(sensehat_ros_SETUP_PY_VERSION "0.1.0")
+set(sensehat_ros_SETUP_PY_SCRIPTS "")
+set(sensehat_ros_SETUP_PY_PACKAGES "sensehat_ros")
+set(sensehat_ros_SETUP_PY_PACKAGE_DIRS "src/sensehat_ros")
+set(sensehat_ros_SETUP_PY_MODULES "")
+set(sensehat_ros_SETUP_PY_MODULE_DIRS "")

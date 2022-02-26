@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: sensehat-ros
+Version: 0.1.0
+Summary: sensehat_ros is a ROS package to interact with Astro Pi Sense HAT sensors, stick and LED matrix.
+Home-page: http://wiki.ros.org/sensehat_ros
+Author: Stefano Dell'Orto
+Author-email: allxone@hotmail.com
+Maintainer: Stefano Dell'Orto
+Maintainer-email: allxone@hotmail.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN

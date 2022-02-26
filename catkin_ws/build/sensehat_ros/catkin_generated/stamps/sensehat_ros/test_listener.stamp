@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+#
+# Copyright 2020, Stefano Dell'Orto
+# License: BSD
+#   https://raw.githubusercontent.com/allxone/sensehat_ros/master/LICENSE
+#
+
+"""Sample client to listen on topic published by sensehat_ros."""
+
+import rospy
+from sensehat_ros.msg import Stick, Environmental, IMU
+from sensehat_ros.srv import *
+import random
+from std_msgs.msg import String
+
+
+def callback(data):
+  # Wait for services
+  rospy.wait_for_service('Clear')
+  rospy.wait_for_service('ShowMessage')
+  svc = rospy.ServiceProxy('ShowMessage', ShowMessage )
+  svc(data.data, 0.1, [255, 0, 0],[0,0,0])
+  rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+
+    
+def listener():
+    # In ROS, nodes are uniquely named. If two nodes with the same
+    # name are launched, the previous one is kicked off. The
+    # anonymous=True flag means that rospy will choose a unique
+    # name for our 'listener' node so that multiple listeners can
+    # run simultaneously.
+    rospy.init_node('listener', anonymous=True)
+
+    rospy.Subscriber("message", String, callback)
+
+    # spin() simply keeps python from exiting until this node is stopped
+    rospy.spin()
+
+if __name__ == '__main__':
+    listener()
